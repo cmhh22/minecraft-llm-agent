@@ -1,245 +1,331 @@
-<h1 align="center">🧠mindcraft⛏️</h1>
-<h1 align="center">
-  <a href="https://trendshift.io/repositories/9163" target="_blank"><img src="https://trendshift.io/api/badge/repositories/9163" alt="kolbytn%2Fmindcraft | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
-</h1>
+# 🏠 Minecraft LLM Agent - Lolita Edition 🤖
 
-<p align="center">Crafting minds for Minecraft with LLMs and <a href="https://prismarinejs.github.io/mineflayer/#/">Mineflayer!</a></p>
+> **Enhanced Mindcraft** with GitHub Models integration and advanced building capabilities
 
-<p align="center">
-  <a href="https://github.com/mindcraft-bots/mindcraft/blob/main/FAQ.md">FAQ</a> | 
-  <a href="https://discord.gg/mp73p35dzC">Discord Support</a> | 
-  <a href="https://www.youtube.com/watch?v=gRotoL8P8D8">Video Tutorial</a> | 
-  <a href="https://kolbynottingham.com/mindcraft/">Blog Post</a> | 
-  <a href="https://github.com/users/kolbytn/projects/1">Contributor TODO</a> | 
-  <a href="https://mindcraft-minecollab.github.io/index.html">Paper Website</a> | 
-  <a href="https://github.com/mindcraft-bots/mindcraft/blob/main/minecollab.md">MineCollab</a>
-</p>
+AI-powered Minecraft bot using the **Mindcraft** framework with **FREE GitHub Models API**. Meet **Lolita** - a Spanish-speaking female bot that builds detailed architectural structures, not just simple boxes!
 
-> [!Caution]
-Do not connect this bot to public servers with coding enabled. This project allows an LLM to write/execute code on your computer. The code is sandboxed, but still vulnerable to injection attacks. Code writing is disabled by default, you can enable it by setting `allow_insecure_coding` to `true` in `settings.js`. Ye be warned.
+![Minecraft](https://img.shields.io/badge/Minecraft-1.21.6-green)
+![Node.js](https://img.shields.io/badge/Node.js-v20.20.0-blue)
+![GitHub Models](https://img.shields.io/badge/GitHub%20Models-Mistral%20Medium-purple)
+![Free API](https://img.shields.io/badge/API-150%20req%2Fday%20FREE-brightgreen)
 
-# Getting Started
-## Requirements
+---
 
-- [Minecraft Java Edition](https://www.minecraft.net/en-us/store/minecraft-java-bedrock-edition-pc) (up to v1.21.6, recommend v1.21.6)
-- [Node.js Installed](https://nodejs.org/) (Node v18 or v20 LTS recommended. Node v24+ may cause issues with native dependencies)
-- At least one API key from a supported API provider. See [supported APIs](#model-customization). OpenAI is the default.
+## ✨ What Makes This Version Special
 
-> [!Important]
-> If installing node on windows, ensure you check `Automatically install the necessary tools`
->
-> If you encounter `npm install` errors on macOS, see the [FAQ](FAQ.md#common-issues) for troubleshooting native module build issues
+This is a **customized fork** of [Mindcraft](https://github.com/kolbytn/mindcraft) with:
 
-## Install and Run
+### 🆕 New Features
+- ✅ **GitHub Models Integration**: FREE API with Mistral Medium (150 requests/day)
+- ✅ **Advanced Building AI**: Detailed houses with peaked roofs, windows, doors, interiors
+- ✅ **Enhanced Coding Prompts**: 10-rule architecture system for quality structures
+- ✅ **Spanish Language**: Native Spanish responses
+- ✅ **Multiple Materials**: Uses oak planks, cobblestone, glass, stairs, logs
+- ✅ **Interior Decoration**: Adds torches, crafting tables, furnaces, beds
 
-1. Make sure you have the requirements above.
+### 🏗️ Building Examples
+**Before (Default Mindcraft)**: Simple 4-wall box with flat ceiling
+**After (This Version)**: 7×7×5 house with:
+- Cobblestone foundation
+- Oak log corner pillars  
+- Glass pane windows
+- Oak door entrance
+- **Peaked A-frame roof** (oak stairs)
+- Interior furniture
 
-2. Download the [latest release](https://github.com/mindcraft-bots/mindcraft/releases/latest) and unzip it, or clone the repository.
+---
 
-3. Rename `keys.example.json` to `keys.json` and fill in your API keys (you only need one). The desired model is set in `andy.json` or other profiles. For other models refer to the table below.
+## 🚀 Quick Start
 
-4. In terminal/command prompt, run `npm install` from the installed directory
+### Prerequisites
 
-5. Start a minecraft world and open it to LAN on localhost port `55916`
-
-6. Run `node main.js` from the installed directory
-
-If you encounter issues, check the [FAQ](https://github.com/mindcraft-bots/mindcraft/blob/main/FAQ.md) or find support on [discord](https://discord.gg/mp73p35dzC). We are currently not very responsive to github issues. To run tasks please refer to [Minecollab Instructions](minecollab.md#installation)
+- [Minecraft Java Edition 1.21.6](https://www.minecraft.net/en-us/store/minecraft-java-bedrock-edition-pc)
+- [Node.js v20+](https://nodejs.org/) (v20 LTS recommended)
+- **GitHub Personal Access Token** with `models:read` permission (FREE)
 
 
-# Configuration
-## Model Customization
+### Installation
 
-You can configure project details in `settings.js`. [See file.](settings.js)
-
-You can configure the agent's name, model, and prompts in their profile like `andy.json`. The model can be specified with the `model` field, with values like `model: "gemini-2.5-pro"`. You will need the correct API key for the API provider you choose. See all supported APIs below.
-
-<details>
-<summary><strong>⭐ VIEW SUPPORTED APIs ⭐</strong></summary>
-
-| API Name | Config Variable| Docs |
-|------|------|------|
-| `openai` | `OPENAI_API_KEY` | [docs](https://platform.openai.com/docs/models) |
-| `google` | `GEMINI_API_KEY` | [docs](https://ai.google.dev/gemini-api/docs/models/gemini) |
-| `anthropic` | `ANTHROPIC_API_KEY` | [docs](https://docs.anthropic.com/claude/docs/models-overview) |
-| `xai` | `XAI_API_KEY` | [docs](https://docs.x.ai/docs) |
-| `deepseek` | `DEEPSEEK_API_KEY` | [docs](https://api-docs.deepseek.com/) |
-| `ollama` (local) | n/a | [docs](https://ollama.com/library) |
-| `qwen` | `QWEN_API_KEY` | [Intl.](https://www.alibabacloud.com/help/en/model-studio/developer-reference/use-qwen-by-calling-api)/[cn](https://help.aliyun.com/zh/model-studio/getting-started/models) |
-| `mistral` | `MISTRAL_API_KEY` | [docs](https://docs.mistral.ai/getting-started/models/models_overview/) |
-| `replicate` | `REPLICATE_API_KEY` | [docs](https://replicate.com/collections/language-models) |
-| `groq` (not grok) | `GROQCLOUD_API_KEY` | [docs](https://console.groq.com/docs/models) |
-| `huggingface` | `HUGGINGFACE_API_KEY` | [docs](https://huggingface.co/models) |
-| `novita` | `NOVITA_API_KEY` | [docs](https://novita.ai/model-api/product/llm-api?utm_source=github_mindcraft&utm_medium=github_readme&utm_campaign=link) |
-| `openrouter` | `OPENROUTER_API_KEY` | [docs](https://openrouter.ai/models) |
-| `glhf` | `GHLF_API_KEY` | [docs](https://glhf.chat/user-settings/api) |
-| `hyperbolic` | `HYPERBOLIC_API_KEY` | [docs](https://docs.hyperbolic.xyz/docs/getting-started) |
-| `vllm` | n/a | n/a |
-| `cerebras` | `CEREBRAS_API_KEY` | [docs](https://inference-docs.cerebras.ai/introduction) |
-| `mercury` | `MERCURY_API_KEY` | [docs](https://www.inceptionlabs.ai/) |
-
-</details>
-
-For more comprehensive model configuration and syntax, see [Model Specifications](#model-specifications).
-
-For local models we support [ollama](https://ollama.com/) and we provide our own finetuned models for you to use. 
-To install our models, install ollama and run the following terminal command:
 ```bash
-ollama pull sweaterdog/andy-4:micro-q8_0 && ollama pull embeddinggemma
+# Clone this repository
+git clone https://github.com/cmhh22/minecraft-llm-agent.git
+cd minecraft-llm-agent
+
+# Install dependencies
+npm install
 ```
 
-## Online Servers
-To connect to online servers your bot will need an official Microsoft/Minecraft account. You can use your own personal one, but will need another account if you want to connect too and play with it. To connect, change these lines in `settings.js`:
-```javascript
-"host": "111.222.333.444",
-"port": 55920,
-"auth": "microsoft",
+### 🔑 Get Your FREE GitHub Models API Key
 
-// rest is same...
-```
-> [!Important]
-> The bot's name in the profile.json must exactly match the Minecraft profile name! Otherwise the bot will spam talk to itself.
+1. Go to [GitHub Settings → Developer settings → Personal access tokens → Fine-grained tokens](https://github.com/settings/tokens?type=beta)
+2. Click **"Generate new token"**
+3. Give it a name (e.g., "mindcraft-bot")
+4. Under **"Repository permissions"**, enable: **`Models: Read`**
+5. Click **"Generate token"** and copy it
 
-To use different accounts, Mindcraft will connect with the account that the Minecraft launcher is currently using. You can switch accounts in the launcher, then run `node main.js`, then switch to your main account after the bot has connected.
+### ⚙️ Configuration
 
-## Tasks
-
-Tasks automatically start the bot with a prompt and a goal item to aquire or blueprint to construct. To run a simple task that involves collecting 4 oak_logs run 
-
-`node main.js --task_path tasks/basic/single_agent.json --task_id gather_oak_logs`
-
-Here is an example task json format: 
-
-```
+1. **Rename** `keys.example.json` to `keys.json`
+2. **Add your GitHub token**:
+```json
 {
-    "gather_oak_logs": {
-      "goal": "Collect at least four logs",
-      "initial_inventory": {
-        "0": {
-          "wooden_axe": 1
-        }
-      },
-      "agent_count": 1,
-      "target": "oak_log",
-      "number_of_target": 4,
-      "type": "techtree",
-      "max_depth": 1,
-      "depth": 0,
-      "timeout": 300,
-      "blocked_actions": {
-        "0": [],
-        "1": []
-      },
-      "missing_items": [],
-      "requires_ctable": false
-    }
+  "GITHUB_API_KEY": "github_pat_YOUR_TOKEN_HERE"
 }
 ```
 
-The `initial_inventory` is what the bot will have at the start of the episode, `target` refers to the target item and `number_of_target` refers to the number of target items the agent needs to collect to successfully complete the task. 
-
-If you want more optimization and automatic launching of the minecraft world, you will need to follow the instructions in [Minecollab Instructions](minecollab.md#installation)
-
-## Docker Container
-
-If you intend to `allow_insecure_coding`, it is a good idea to run the app in a docker container to reduce risks of running unknown code. This is strongly recommended before connecting to remote servers, although still does not guarantee complete safety.
-
-```bash
-docker build -t mindcraft . && docker run --rm --add-host=host.docker.internal:host-gateway -p 8080:8080 -p 3000-3003:3000-3003 -e SETTINGS_JSON='{"auto_open_ui":false,"profiles":["./profiles/gemini.json"],"host":"host.docker.internal"}' --volume ./keys.json:/app/keys.json --name mindcraft mindcraft
-```
-or simply
-```bash
-docker-compose up --build
-```
-
-When running in docker, if you want the bot to join your local minecraft server, you have to use a special host address `host.docker.internal` to call your localhost from inside your docker container. Put this into your [settings.js](settings.js):
-
+3. **Configure Minecraft server** (if needed):
+Edit `settings.js`:
 ```javascript
-"host": "host.docker.internal", // instead of "localhost", to join your local minecraft from inside the docker container
+"minecraft_port": 55916,  // Must match your LAN port
+"auth": "offline"          // Use "microsoft" for online servers
 ```
 
-To connect to an unsupported minecraft version, you can try to use [viaproxy](services/viaproxy/README.md)
+### ▶️ Running the Bot
 
-# Bot Profiles
+1. **Start Minecraft Java Edition 1.21.6**
+2. **Open a world**
+3. Press **ESC** → **"Open to LAN"** → Note the port (e.g., 55916)
+4. **Start the bot**:
+```bash
+node main.js
+```
 
-Bot profiles are json files (such as `andy.json`) that define:
+5. **Chat with Lolita in-game** (Spanish):
+   - `"construye una casa bonita"` (build a nice house)
+   - `"ven aquí"` (come here)
+   - `"ataca ese zombie"` (attack that zombie)
+   - `"sígueme"` (follow me)
 
-1. Bot backend LLMs to use for talking, coding, and embedding.
-2. Prompts used to influence the bot's behavior.
-3. Examples help the bot perform tasks.
+---
 
-## Model Specifications
+## 🏗️ Advanced Building System
 
-LLM models can be specified simply as `"model": "gpt-4o"`, or more specifically with `"{api}/{model}"`, like `"openrouter/google/gemini-2.5-pro"`. See all supported APIs [here](#model-customization).
+Lolita builds **architectural structures**, not boxes:
 
-The `model` field can be a string or an object. A model object must specify an `api`, and optionally a `model`, `url`, and additional `params`. You can also use different models/providers for chatting, coding, vision, embedding, and voice synthesis. See the example below.
+### Default Mindcraft Output:
+```
+┌─────────┐
+│░░░░░░░░░│  ← 4 walls
+│░░░░░░░░░│  ← Flat ceiling
+│░░░░░░░░░│
+└─────────┘
+```
 
+### This Version's Output:
+```
+      /\        ← Peaked roof (oak stairs)
+     /  \
+    /____\
+   |🪟  🪟|     ← Glass windows
+   |  🚪 |     ← Oak door
+   |🪵  🪵|     ← Corner pillars
+   ========     ← Cobblestone foundation
+```
+
+### Building Features:
+- ✅ **10 Architecture Rules** enforced in AI prompt
+- ✅ **Multiple materials**: oak_planks, cobblestone, glass_pane, oak_log, oak_stairs
+- ✅ **Peaked roofs** with stairs in A-frame shape
+- ✅ **Functional doors** (oak_door, spruce_door, etc.)
+- ✅ **Glass windows** (minimum 2 per wall)
+- ✅ **Structural pillars** at all 4 corners
+- ✅ **Stone foundations** below walls
+- ✅ **Interior decoration**: torches, crafting_table, furnace, bed
+- ✅ **Minimum size**: 7×7×5 blocks (W×D×H)
+
+---
+
+## 🤖 Available Models (All FREE)
+
+GitHub Models **Low Tier** = **150 requests/day**, **15 requests/minute**
+
+| Model | Description | Use Case |
+|-------|-------------|----------|
+| `mistral-ai/mistral-medium-2505` | **⭐ Current** | Best for complex building code |
+| `mistral-ai/mistral-small-2503` | Faster | Simple tasks |
+| `cohere/cohere-command-a` | Good | Instruction following |
+| `meta/meta-llama-3.1-8b-instruct` | Fast | Lightweight tasks |
+| `microsoft/phi-4` | Code-focused | Programming |
+
+**Change model** in `andy.json`:
 ```json
-"model": {
-  "api": "openai",
-  "model": "gpt-4o",
-  "url": "https://api.openai.com/v1/",
-  "params": {
-    "max_tokens": 1000,
-    "temperature": 1
-  }
-},
-"code_model": {
-  "api": "openai",
-  "model": "gpt-4",
-  "url": "https://api.openai.com/v1/"
-},
-"vision_model": {
-  "api": "openai",
-  "model": "gpt-4o",
-  "url": "https://api.openai.com/v1/"
-},
-"embedding": {
-  "api": "openai",
-  "url": "https://api.openai.com/v1/",
-  "model": "text-embedding-ada-002"
-},
-"speak_model": "openai/tts-1/echo"
+{
+  "model": "github/mistral-ai/mistral-medium-2505"
+}
 ```
 
-`model` is used for chat, `code_model` is used for newAction coding, `vision_model` is used for image interpretation, `embedding` is used to embed text for example selection, and `speak_model` is used for voice synthesis. `model` will be used by default for all other models if not specified. Not all APIs support embeddings, vision, or voice synthesis.
+---
 
-All apis have default models and urls, so those fields are optional. The `params` field is optional and can be used to specify additional parameters for the model. It accepts any key-value pairs supported by the api. Is not supported for embedding models.
+## 🎮 In-Game Commands
 
-## Embedding Models
+| Command | Example | Description |
+|---------|---------|-------------|
+| `!goToPlayer [name]` | `!goToPlayer Steve` | Follow a player |
+| `!collectBlocks [type] [count]` | `!collectBlocks oak_log 10` | Mine blocks |
+| `!craftRecipe [item] [count]` | `!craftRecipe iron_pickaxe 1` | Craft items |
+| `!attack [mob]` | `!attack zombie` | Combat |
+| `!newAction [description]` | `!newAction build a house` | Execute complex task |
+| `!followPlayer [name]` | `!followPlayer Alex` | Follow continuously |
+| `!stop` | `!stop` | Stop current action |
 
-Embedding models are used to embed and efficiently select relevant examples for conversation and coding.
+**Chat naturally** (Spanish):
+- `"construye una casa bonita"` → Lolita builds a detailed house
+- `"dame madera"` → Lolita gives you wood
+- `"ataca ese creeper"` → Lolita attacks nearby creeper
 
-Supported Embedding APIs: `openai`, `google`, `replicate`, `huggingface`, `novita`
+---
 
-If you try to use an unsupported model, then it will default to a simple word-overlap method. Expect reduced performance. We recommend using supported embedding APIs.
+## 📁 Project Structure
 
-## Voice Synthesis Models
-
-Voice synthesis models are used to narrate bot responses and specified with `speak_model`. This field is parsed differently than other models and only supports strings formatted as `"{api}/{model}/{voice}"`, like `"openai/tts-1/echo"`. We only support `openai` and `google` for voice synthesis.
-
-## Specifying Profiles via Command Line
-
-By default, the program will use the profiles specified in `settings.js`. You can specify one or more agent profiles using the `--profiles` argument: `node main.js --profiles ./profiles/andy.json ./profiles/jill.json`
-
-
-# Contributing
-
-We welcome contributions to the project! We are generally less responsive to github issues, and more responsive to pull requests. Join the [discord](https://discord.gg/mp73p35dzC) for more active support and direction.
-
-While AI generated code is allowed, please vet it carefully. Submitting tons of sloppy code and documentation actively harms development.
-
-## Patches
-
-Some of the node modules that we depend on have bugs in them. To add a patch, change your local node module file and run `npx patch-package [package-name]`
-
-## Development Team
-Thanks to all who contributed to the project, especially the official development team: [@MaxRobinsonTheGreat](https://github.com/MaxRobinsonTheGreat), [@kolbytn](https://github.com/kolbytn), [@icwhite](https://github.com/icwhite), [@Sweaterdog](https://github.com/Sweaterdog), [@Ninot1Quyi](https://github.com/Ninot1Quyi), [@riqvip](https://github.com/riqvip), [@uukelele-scratch](https://github.com/uukelele-scratch), [@mrelmida](https://github.com/mrelmida)
-
-
-## Citation:
-This work is published in the paper [Collaborating Action by Action: A Multi-agent LLM Framework for Embodied Reasoning](https://arxiv.org/abs/2504.17950). Please use this citation if you use this project in your research:
 ```
+minecraft-llm-agent/
+├── andy.json                    # Lolita's profile (name, model, prompts)
+├── keys.json                    # API keys (gitignored)
+├── settings.js                  # Server config
+├── main.js                      # Entry point
+├── src/
+│   ├── models/
+│   │   ├── github.js           # 🆕 GitHub Models adapter
+│   │   ├── gemini.js
+│   │   └── openrouter.js
+│   ├── agent/
+│   │   ├── agent.js
+│   │   ├── coder.js            # Code generation with 10 building rules
+│   │   └── library/
+│   │       └── skills.js       # placeBlock, goTo, attack, etc.
+│   └── mindcraft/
+│       └── mindcraft.js
+└── profiles/defaults/
+    └── _default.json            # Default prompts & examples
+```
+
+---
+
+## 🔧 Customization
+
+### Change Bot Name
+`andy.json`:
+```json
+{
+  "name": "YourBotName"
+}
+```
+
+### Change Language to English
+`andy.json`:
+```json
+{
+  "conversing": "You are an AI bot named $NAME... You speak in English..."
+}
+```
+
+### Adjust Response Speed
+`andy.json`:
+```json
+{
+  "cooldown": 5000  // milliseconds between actions (default: 10000)
+}
+```
+
+### Switch to Different GitHub Model
+`andy.json`:
+```json
+{
+  "model": "github/cohere/cohere-command-a"  // or any Low-tier model
+}
+```
+
+---
+
+## 🐛 Troubleshooting
+
+### ❌ "Error with embedding model"
+**✅ Solution**: Ignore it - the bot uses word-overlap instead (works fine).
+
+### ❌ "MC server not found"
+**✅ Solution**: 
+1. Minecraft world must be **Open to LAN**
+2. Port in `settings.js` must match LAN port
+3. Check Windows Firewall settings
+
+### ❌ "Rate limited (429)"
+**✅ Solution**: 
+- Wait 60-180 seconds (automatic retry enabled)
+- GitHub Models free tier: **15 RPM**, **150 RPD**
+
+### ❌ "Unknown model: mistralai/mistral-small"
+**✅ Solution**: Use correct format: `github/mistral-ai/mistral-medium-2505` (with dashes, not underscores)
+
+### ❌ Bot builds simple boxes
+**✅ Solution**: Make sure you're using the customized `andy.json` with:
+```json
+{
+  "coding": "...IMPORTANT BUILDING GUIDELINES...",
+  "coding_examples": [ /* detailed house example */ ]
+}
+```
+
+---
+
+## 🆚 Comparison with Original Mindcraft
+
+| Feature | Original Mindcraft | This Version |
+|---------|-------------------|--------------|
+| AI Provider | OpenAI, Gemini, Anthropic (paid) | **GitHub Models (FREE)** |
+| Cost | $0.10+ per 1000 requests | **$0.00** (150/day) |
+| Building Quality | Basic box structures | **Peaked roofs, windows, doors, interiors** |
+| Prompts | Generic coding | **10-rule architecture system** |
+| Examples | Simple tower | **Complete house with furniture** |
+| Language | English | **Spanish** (configurable) |
+| Code Security | `allow_insecure_coding=false` | **Enabled for god mode** |
+
+---
+
+## 🙏 Credits & Original Project
+
+This project is a **customized fork** of the amazing **[Mindcraft](https://github.com/kolbytn/mindcraft)** by [@kolbytn](https://github.com/kolbytn) and the Mindcraft development team.
+
+**Original Mindcraft**:
+- 📄 [Paper: "Collaborating Action by Action"](https://arxiv.org/abs/2504.17950)
+- 🎥 [Video Tutorial](https://www.youtube.com/watch?v=gRotoL8P8D8)
+- 💬 [Discord Community](https://discord.gg/mp73p35dzC)
+- 📚 [Original FAQ](https://github.com/mindcraft-bots/mindcraft/blob/main/FAQ.md)
+
+**Development Team**: [@MaxRobinsonTheGreat](https://github.com/MaxRobinsonTheGreat), [@kolbytn](https://github.com/kolbytn), [@icwhite](https://github.com/icwhite), [@Sweaterdog](https://github.com/Sweaterdog), [@Ninot1Quyi](https://github.com/Ninot1Quyi), [@riqvip](https://github.com/riqvip), [@uukelele-scratch](https://github.com/uukelele-scratch), [@mrelmida](https://github.com/mrelmida)
+
+**Technologies**:
+- [Mineflayer](https://github.com/PrismarineJS/mineflayer) - Minecraft bot framework
+- [GitHub Models](https://github.com/marketplace/models) - Free AI inference API
+- [Mistral AI](https://mistral.ai/) - Language models
+
+---
+
+## ⚠️ Security Warning
+
+> [!CAUTION]
+> This bot executes LLM-generated code on your computer. It's sandboxed but still vulnerable to injection attacks. **Do NOT** connect to public servers with `allow_insecure_coding: true`. Use at your own risk.
+
+---
+
+## 📝 License
+
+Based on Mindcraft - check their [LICENSE](LICENSE) for details.
+
+---
+
+## 📧 Contact
+
+**Customization by**: [@cmhh22](https://github.com/cmhh22)
+
+**Original Project**: [Mindcraft](https://github.com/kolbytn/mindcraft)
+
+---
+
+## Citation
+
+If you use this project in your research, please cite the original Mindcraft paper:
+
+```bibtex
 @article{mindcraft2025,
   title = {Collaborating Action by Action: A Multi-agent LLM Framework for Embodied Reasoning},
   author = {White*, Isadora and Nottingham*, Kolby and Maniar, Ayush and Robinson, Max and Lillemark, Hansen and Maheshwari, Mehul and Qin, Lianhui and Ammanabrolu, Prithviraj},
@@ -248,3 +334,11 @@ This work is published in the paper [Collaborating Action by Action: A Multi-age
   url = {https://arxiv.org/abs/2504.17950},
 }
 ```
+
+---
+
+⭐ **Star this repo** if you find it useful!
+
+🐛 **Issues?** Check [Troubleshooting](#-troubleshooting) or open an issue.
+
+🤝 **Contributions welcome!** Areas: more building templates, additional languages, vision enhancements.
