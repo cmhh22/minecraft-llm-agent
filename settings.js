@@ -10,20 +10,9 @@ const settings = {
     
     "base_profile": "god_mode", // survival, assistant, creative, or god_mode
     "profiles": [
-        "./andy.json",
-        // "./profiles/gpt.json",
-        // "./profiles/claude.json",
+        "./lolita.json",
         // "./profiles/gemini.json",
-        // "./profiles/llama.json",
-        // "./profiles/qwen.json",
-        // "./profiles/grok.json",
-        // "./profiles/mistral.json",
-        // "./profiles/deepseek.json",
-        // "./profiles/mercury.json",
-        // "./profiles/andy-4.json", // Supports up to 75 messages!
-
-        // using more than 1 profile requires you to /msg each bot indivually
-        // individual profiles override values from the base profile
+        // using more than 1 profile requires you to /msg each bot individually
     ],
 
     "load_memory": false, // load memory from previous session

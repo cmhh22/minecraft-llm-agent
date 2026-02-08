@@ -9,6 +9,8 @@ AI-powered Minecraft bot using the **Mindcraft** framework with **FREE GitHub Mo
 ![GitHub Models](https://img.shields.io/badge/GitHub%20Models-Mistral%20Medium-purple)
 ![Free API](https://img.shields.io/badge/API-150%20req%2Fday%20FREE-brightgreen)
 
+> **[See the bot in action → Demo](docs/DEMO.md)**
+
 ---
 
 ## ✨ What Makes This Version Special
@@ -147,7 +149,7 @@ GitHub Models **Low Tier** = **150 requests/day**, **15 requests/minute**
 | `meta/meta-llama-3.1-8b-instruct` | Fast | Lightweight tasks |
 | `microsoft/phi-4` | Code-focused | Programming |
 
-**Change model** in `andy.json`:
+**Change model** in `lolita.json`:
 ```json
 {
   "model": "github/mistral-ai/mistral-medium-2505"
@@ -179,24 +181,34 @@ GitHub Models **Low Tier** = **150 requests/day**, **15 requests/minute**
 
 ```
 minecraft-llm-agent/
-├── andy.json                    # Lolita's profile (name, model, prompts)
+├── lolita.json                  # Bot profile (name, model, prompts)
 ├── keys.json                    # API keys (gitignored)
-├── settings.js                  # Server config
+├── keys.example.json            # API keys template
+├── settings.js                  # Server & game config
 ├── main.js                      # Entry point
+├── docs/
+│   └── DEMO.md                 # 🆕 Live gameplay examples
 ├── src/
 │   ├── models/
-│   │   ├── github.js           # 🆕 GitHub Models adapter
-│   │   ├── gemini.js
-│   │   └── openrouter.js
+│   │   ├── github.js           # 🆕 GitHub Models adapter (custom)
+│   │   ├── gemini.js           # Google Gemini (backup)
+│   │   ├── openrouter.js       # OpenRouter (backup)
+│   │   ├── gpt.js              # OpenAI GPT
+│   │   ├── ollama.js           # Local models
+│   │   ├── qwen.js             # Alibaba Qwen
+│   │   ├── prompter.js         # Prompt management
+│   │   └── _model_map.js       # Auto-discovery system
 │   ├── agent/
-│   │   ├── agent.js
-│   │   ├── coder.js            # Code generation with 10 building rules
+│   │   ├── agent.js            # Main agent logic
+│   │   ├── coder.js            # Code gen with 10 building rules
+│   │   ├── conversation.js     # Chat handling
 │   │   └── library/
 │   │       └── skills.js       # placeBlock, goTo, attack, etc.
 │   └── mindcraft/
-│       └── mindcraft.js
-└── profiles/defaults/
-    └── _default.json            # Default prompts & examples
+│       └── mindcraft.js        # Core framework
+├── bots/Lolita/                # Bot runtime data & history
+├── profiles/defaults/          # Base profiles (god_mode, etc.)
+└── patches/                    # Mineflayer compatibility fixes
 ```
 
 ---
@@ -204,7 +216,7 @@ minecraft-llm-agent/
 ## 🔧 Customization
 
 ### Change Bot Name
-`andy.json`:
+`lolita.json`:
 ```json
 {
   "name": "YourBotName"
@@ -212,7 +224,7 @@ minecraft-llm-agent/
 ```
 
 ### Change Language to English
-`andy.json`:
+`lolita.json`:
 ```json
 {
   "conversing": "You are an AI bot named $NAME... You speak in English..."
@@ -220,7 +232,7 @@ minecraft-llm-agent/
 ```
 
 ### Adjust Response Speed
-`andy.json`:
+`lolita.json`:
 ```json
 {
   "cooldown": 5000  // milliseconds between actions (default: 10000)
@@ -228,7 +240,7 @@ minecraft-llm-agent/
 ```
 
 ### Switch to Different GitHub Model
-`andy.json`:
+`lolita.json`:
 ```json
 {
   "model": "github/cohere/cohere-command-a"  // or any Low-tier model
@@ -257,7 +269,7 @@ minecraft-llm-agent/
 **✅ Solution**: Use correct format: `github/mistral-ai/mistral-medium-2505` (with dashes, not underscores)
 
 ### ❌ Bot builds simple boxes
-**✅ Solution**: Make sure you're using the customized `andy.json` with:
+**✅ Solution**: Make sure you're using the customized `lolita.json` with:
 ```json
 {
   "coding": "...IMPORTANT BUILDING GUIDELINES...",
