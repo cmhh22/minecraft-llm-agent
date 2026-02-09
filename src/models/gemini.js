@@ -70,6 +70,7 @@ export class Gemini {
                 }
             }
         }
+        return 'I am currently rate limited, please try again later.';
     }
 
     async sendVisionRequest(turns, systemMessage, imageBuffer) {

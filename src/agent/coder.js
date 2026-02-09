@@ -43,6 +43,13 @@ export class Coder {
             let res = await this.agent.prompter.promptCoding(messages_copy);
             if (this.agent.bot.interrupt_code)
                 return null;
+            if (!res || typeof res !== 'string') {
+                console.warn('Code generation returned empty or invalid response. Trying again.');
+                no_code_failures++;
+                if (no_code_failures >= MAX_NO_CODE)
+                    return 'Error generating code: LLM returned no response.';
+                continue;
+            }
             let contains_code = res.indexOf('```') !== -1;
             if (!contains_code) {
                 if (res.indexOf('!newAction') !== -1) {
@@ -66,6 +73,20 @@ export class Coder {
                 continue;
             }
             code = res.substring(res.indexOf('```')+3, res.lastIndexOf('```'));
+            // Strip language identifier (e.g., "js" or "javascript") from the start of code block
+            if (code.startsWith('js\n')) code = code.substring(3);
+            else if (code.startsWith('javascript\n')) code = code.substring(11);
+            code = code.trim();
+            // Detect empty code blocks (model returned ``` with nothing inside)
+            if (!code || code.length < 10) {
+                console.warn('Model returned empty or near-empty code block. Retrying...');
+                messages.push({
+                    role: 'system',
+                    content: 'Error: You returned an empty code block. You MUST write actual JavaScript code inside the ``` codeblock. Write the COMPLETE code for the build, do not leave it empty. Include all phases in a single codeblock.'
+                });
+                no_code_failures++;
+                continue;
+            }
             const result = await this._stageCode(code);
             const executionModule = result.func;
             const lintResult = await this._lintCode(result.src_lint_copy);

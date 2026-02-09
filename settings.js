@@ -10,7 +10,7 @@ const settings = {
     
     "base_profile": "god_mode", // survival, assistant, creative, or god_mode
     "profiles": [
-        "./lolita.json",
+        "./bartolo.json",
         // "./profiles/gemini.json",
         // using more than 1 profile requires you to /msg each bot individually
     ],
